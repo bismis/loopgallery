@@ -36,15 +36,29 @@ https://www.tooplate.com/view/2117-infinite-loop
               <li class="nav-item">
                   <a class="nav-link tm-nav-link" href="#infinite">Home</a>
               </li>
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                  <a class="nav-link tm-nav-link" href="#whatwedo">What We Do</a>
+                  <a class="nav-link tm-nav-link" href="#whatwedo">{{user.username}}</a>
               </li>
+              {% endif %}
               <li class="nav-item">
                 <a class="nav-link tm-nav-link" href="#testimonials">Testimonials</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link tm-nav-link" href="#gallery">Gallery</a>
               </li>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="customer/logout">Logout</a>
+            </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="nav-link tm-nav-link" href="customer/register">Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link tm-nav-link" href="customer/login">Login</a>
+          </li>
+          {% endif %}
               <li class="nav-item">
                   <a class="nav-link tm-nav-link" href="#contact">Contact</a>
               </li>                    
