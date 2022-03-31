@@ -51,6 +51,8 @@ li,ul,body,input{margin:0; padding:0; list-style:none}
 </head>
 <body bgcolor="orange">
 <div id="login-form">
+    <center><font color="red" size="5" style="padding: 10px;">{{emsg}}</font>
+    </center>
 
 <input type="radio" checked id="login" name="switch" class="hide">
 <input type="radio" id="signup" name="switch" class="hide">
@@ -64,14 +66,16 @@ li,ul,body,input{margin:0; padding:0; list-style:none}
 <div class="section-out">
 <section class="login-section">
 <div class="login">
-<form action="">
-<ul class="ul-list">required
-<li><input type="text"  class="input" placeholder="Firstname"/><span class="icon"><i class="fa fa-user"></i></span></li>
-<li><input type="text"  class="input" placeholder="Lastname"/><span class="icon"><i class="fa fa-user"></i></span></li>
-<li><input type="text"  class="input" placeholder="username"/><span class="icon"><i class="fa fa-user"></i></span></li>
-<li><input type="Email"  class="input" placeholder="Email"/><span class="icon"><i class="fa fa-user"></i></span></li>
-<li><input type="password" required class="input" placeholder="Password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
-<li><input type="password" required class="input" placeholder="Re-password"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+<form action="{% url 'register in' %}"  method="Post">
+    {% csrf_token %}
+    
+<ul class="ul-list">
+<li><input type="text"  class="input" placeholder="Firstname"name="fname"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  class="input" placeholder="Lastname"name="lname"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="text"  class="input" placeholder="username"name="user"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="Email"  class="input" placeholder="Email"name="email"/><span class="icon"><i class="fa fa-user"></i></span></li>
+<li><input type="password" required class="input" placeholder="Password"name="pswf"/><span class="icon"><i class="fa fa-lock"></i></span></li>
+<li><input type="password" required class="input" placeholder="Re-password" name="psws"/><span class="icon"><i class="fa fa-lock"></i></span></li>
 <li><span class="remember"><input type="checkbox" id="check"> <label for="check">Remember Me</label></span><span class="remember"><a href="">Forget Password</a></span></li>
 <li><input type="submit" value="SIGN IN" class="btn"></li>
 </ul>
